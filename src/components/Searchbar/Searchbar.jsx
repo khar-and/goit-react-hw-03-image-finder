@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 
 export class Searchbar extends Component {
   state = { searchName: '' };
 
   handleSubmitForm = evt => {
     evt.preventDefault();
+
+    // Проверка на заполнение поля поиска
+    if (this.state.searchName.trim() === '') {
+      return toast.warn('Please input the search name!');
+      //   alert('Please input the search name');
+    }
+    // передача значения поиска в АРР-компонент
     this.props.onSubmit(this.state.searchName);
+    // очистка поля поиска
     this.setState({ searchName: '' });
   };
 
