@@ -1,12 +1,13 @@
 import React from 'react';
+import { BtnLoadMore, ButtonWrap } from './Button.styled';
 
 const Button = ({ onClick }) => {
   return (
-    <div>
-      <button type="button" onClick={onClick}>
+    <ButtonWrap>
+      <BtnLoadMore type="button" onClick={onClick}>
         Load More
-      </button>
-    </div>
+      </BtnLoadMore>
+    </ButtonWrap>
   );
 };
 

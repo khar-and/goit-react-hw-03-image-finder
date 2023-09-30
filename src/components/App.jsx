@@ -8,6 +8,7 @@ import { fetchApi } from 'api/fetch';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Paragraf } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -64,7 +65,7 @@ export class App extends Component {
         totalPages: Math.ceil(data.totalHits / 12), // Вычисляем общее количество страниц
       }));
     } catch (error) {
-      this.setState({ error: 'Error' });
+      this.setState({ error: 'Something wrong!' });
     } finally {
       this.setState({ isLoading: false });
     }
@@ -82,7 +83,7 @@ export class App extends Component {
         {pictures.length > 0 ? (
           <ImageGallery pictures={pictures} />
         ) : (
-          <p>The Gallery of images is empty</p>
+          <Paragraf>The Gallery of images is empty</Paragraf>
         )}
         {pictures.length > 0 && totalPages !== currentPage && !isLoading && (
           <Button onClick={this.loadMore} />
